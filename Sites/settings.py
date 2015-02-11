@@ -53,7 +53,7 @@ ROOT_URLCONF = 'Sites.urls'
 
 WSGI_APPLICATION = 'Sites.wsgi.application'
 
-GEOS_LIBRARY_PATH = 'C:/OSGeo4W/bin/geos_c.dll'
+#GEOS_LIBRARY_PATH = 'C:/OSGeo4W/bin/geos_c.dll'  # Windows specific configuration
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
@@ -65,7 +65,7 @@ DATABASES = {
         'NAME': 'PaleoSites',
         'USER': '',
         'PASSWORD': '',
-        'PORT': '5433',   # default Postgres por
+        'PORT': '5432',   # default Postgres port is 5432
     }
 }
 

@@ -2,10 +2,11 @@
 from django_countries.fields import CountryField
 from django.contrib.gis.db import models
 
+
 class Site(models.Model):
     id = models.AutoField(primary_key=True)
     site = models.CharField('Site name',max_length=255,blank=False,null=True)
-    country = CountryField('Country',null=True)
+    country = CountryField('Country',null=True, max_length=255)
     data_source = models.CharField('Data Source',max_length=50,blank=True,null=True)
     #latitude = models.FloatField('Latitude',blank=True,null=True)
     #longitude = models.FloatField('Longitude',blank=True,null=True)
@@ -16,21 +17,26 @@ class Site(models.Model):
     map_location = models.PointField(dim=2, blank=True, null=True)
     objects = models.GeoManager()
     notes = models.TextField(blank=True, null=True)
+
     def longitude(self):
         if self.map_location:
             return self.map_location.x
         else:
             return None
+
     def latitude(self):
         if self.map_location:
             return self.map_location.y
         else:
             return None
+
     class Meta:
         managed = True
         db_table = 'sites'
+
     def __unicode__(self):
         return u'%s, %s' % (self.site, self.country)
+
 
 class Date(models.Model):
     site = models.ForeignKey(Site)
