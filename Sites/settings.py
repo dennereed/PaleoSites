@@ -36,7 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.gis',
-    'PaleoSites',
+    'paleosites',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -62,7 +62,7 @@ WSGI_APPLICATION = 'Sites.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'PaleoSites',
+        'NAME': 'paleosites',
         'USER': '',
         'PASSWORD': '',
         'PORT': '5432',   # default Postgres port is 5432

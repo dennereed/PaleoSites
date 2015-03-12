@@ -7,9 +7,18 @@ urlpatterns = patterns('',
     # url(r'^$', 'Sites.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
+    # app urls
+    url(r'^$', 'paleosites.views.home', name='home'),
+    url(r'^paleosites/', include('paleosites.urls', namespace="paleosites")),
+
+    #admin urls
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', 'PaleoSites.views.home', name='home'),
-    url(r'^index', 'PaleoSites.views.home', name='home'),
-    url(r'^kml/', 'PaleoSites.views.all_kml', name='all_kml'),
-    url(r'^map/', 'PaleoSites.views.map_page', name='map_page'),
+
+    # url(r'^$', 'paleosites.views.home', name='home'),
+    # # e.g. /index/
+    # url(r'^index', 'paleosites.views.home', name='home'),
+    # # e.g. /kml/
+    # url(r'^kml/', 'paleosites.views.all_kml', name='all_kml'),
+    # # e.g. /map/
+    # url(r'^map/', 'paleosites.views.map_page', name='map_page'),
 )
