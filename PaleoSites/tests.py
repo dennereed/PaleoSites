@@ -1,3 +1,6 @@
 from django.test import TestCase
 
-# Create your tests here.
+class PaleoSitesTest(TestCase):
+    def test_test(self):
+        two = 1+1
+        self.assertEqual(two, 2)
