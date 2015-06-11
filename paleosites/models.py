@@ -1,4 +1,3 @@
-#from django.db import models
 from django_countries.fields import CountryField
 from django.contrib.gis.db import models
 
@@ -74,4 +73,3 @@ class Site_plus_dates(Site):
         managed = True
         verbose_name = "Sites and dates"
         verbose_name_plural = "Sites and dates"
-
