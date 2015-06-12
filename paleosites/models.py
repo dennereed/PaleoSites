@@ -61,10 +61,10 @@ class Date(models.Model):
 
     class Meta:
         managed = True
-        #db_table = 'dates'
+        # db_table = 'dates'
 
     def __unicode__(self):
-        return u'%s %s %s' % (self.site,self.layer,self.industry)
+        return u'%s %s %s' % (self.site, self.layer, self.industry)
 
 
 class Site_plus_dates(Site):

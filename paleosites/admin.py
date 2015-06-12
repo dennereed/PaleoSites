@@ -17,7 +17,7 @@ class DateInLine(admin.StackedInline):
                  'classes': [('collapse')]})]
 
 
-class Site_plus_dates_admin(admin.ModelAdmin):
+class SiteDateAdmin(admin.ModelAdmin):
     inlines = [
         DateInLine,
     ]
@@ -30,7 +30,7 @@ class Site_plus_dates_admin(admin.ModelAdmin):
     search_fields = ['site', 'country']
 
 
-class Site_admin(admin.OSMGeoAdmin):
+class SiteAdmin(admin.OSMGeoAdmin):
     fieldsets = [(None, {
                  'fields': [('site', 'site_type', 'data_source', 'display'), ('latitude', 'longitude', 'altitude',
                                                                               'country'), ('map_location', 'notes')]})]
@@ -94,7 +94,7 @@ class Site_admin(admin.OSMGeoAdmin):
     actions = [import_sites, update_map_location, clear_flagged, do_stuff]
 
 
-class Date_admin(admin.ModelAdmin):
+class DateAdmin(admin.ModelAdmin):
     fieldsets = [('Sample Information', {
                  'fields': [('site'), ('layer', 'industry', 'industry_2', 'industry_3'),
                             ('cat_no', 'sample', 'technique', 'date', 'sd_plus', 'sd_minus', 'corrected_date_BP',
@@ -132,7 +132,8 @@ class Date_admin(admin.ModelAdmin):
     import_dates.short_description = "Import dates.csv"
     actions = [import_dates]
 
-admin.site.register(Site, Site_admin)
-admin.site.register(Site_plus_dates, Site_plus_dates_admin)
-admin.site.register(Date, Date_admin)
+admin.site.register(Site, SiteAdmin)
+admin.site.register(Site_plus_dates, SiteDateAdmin)
+admin.site.register(Date, DateAdmin)
 #admin.site.register(Place, admin.OSMGeoAdmin)
+
